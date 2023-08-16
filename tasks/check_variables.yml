@@ -1,20 +1,20 @@
 ---
-  - name: check role inputs are valid
-    block:
-      - name: check nutanix_prism_pwd_host
-        ansible.builtin.fail:
-          msg: "the variable 'nutanix_prism_pwd_host' has to be provided."
-        when:
-          - nutanix_prism_pwd_host is not defined or nutanix_prism_pwd_host == ""
+- name: Check role inputs are valid
+  block:
+    - name: Check nutanix_prism_pwd_host
+      ansible.builtin.fail:
+        msg: "the variable 'nutanix_prism_pwd_host' has to be provided."
+      when:
+        - nutanix_prism_pwd_host is not defined or nutanix_prism_pwd_host == ""
 
-      - name: check nutanix_prism_initial_password
-        ansible.builtin.fail:
-          msg: "the variable 'nutanix_prism_initial_password' has to be provided."
-        when:
-          - nutanix_prism_initial_password is not defined or nutanix_prism_initial_password == ""
+    - name: Check nutanix_prism_initial_password
+      ansible.builtin.fail:
+        msg: "the variable 'nutanix_prism_initial_password' has to be provided."
+      when:
+        - nutanix_prism_initial_password is not defined or nutanix_prism_initial_password == ""
 
-      - name: check nutanix_prism_new_password
-        ansible.builtin.fail:
-          msg: "the variable 'nutanix_prism_new_password' has to be provided."
-        when:
-          - nutanix_prism_new_password is not defined or nutanix_prism_new_password == ""
+    - name: Check nutanix_prism_new_password
+      ansible.builtin.fail:
+        msg: "the variable 'nutanix_prism_new_password' has to be provided."
+      when:
+        - nutanix_prism_new_password is not defined or nutanix_prism_new_password == ""
