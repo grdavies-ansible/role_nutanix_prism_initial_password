@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  gather_facts: false
+  roles:
+    - role: ../..
+  vars:
+    nutanix_prism_pwd_host: 10.38.186.39
+    nutanix_prism_pwd_username: admin
+    nutanix_prism_initial_password: Nutanix/4u 
+    nutanix_prism_new_password: nx2Tech106!

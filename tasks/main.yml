@@ -1,0 +1,4 @@
+---
+# tasks file for role_nutanix_prism_initial_password
+- import_tasks: check_variables.yml
+- import_tasks: initial_password.yml
