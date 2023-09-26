@@ -7,7 +7,7 @@
   ansible.builtin.include_role:
     name: grdavies.role_nutanix_prism_api
   vars:
-    role_nutanix_prism_api_host: "{{ role_nutanix_prism_eula_host }}"
+    role_nutanix_prism_api_host: "{{ role_nutanix_prism_initial_password_host }}"
     role_nutanix_prism_api_username: "{{ role_nutanix_prism_initial_password_username }}"
     role_nutanix_prism_api_password: "{{ role_nutanix_prism_initial_password_default_password }}"
     role_nutanix_prism_api_port: "{{ role_nutanix_prism_initial_password_port }}"
