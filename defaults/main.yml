@@ -1,6 +1,6 @@
 ---
 # defaults file for role_nutanix_prism_initial_password
-nutanix_debug: false
-validate_certs: false
-nutanix_prism_pwd_username: admin
-nutanix_prism_pwd_port: 9440
+role_nutanix_prism_initial_password_debug: false
+role_nutanix_prism_initial_password_validate_certs: false
+role_nutanix_prism_initial_password_username: admin
+role_nutanix_prism_initial_password_port: 9440

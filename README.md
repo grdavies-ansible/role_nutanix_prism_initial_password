@@ -2,24 +2,21 @@
 
 This Ansible to set the initial admin password for either a Nutanix cluster or Prism Central.
 
+## Input Variables
 
-## Role Variables
-
-| Variable                                          | Required | Default | Choices                   | Comments                                                                                               |
-|---------------------------------------------------|----------|---------|---------------------------|--------------------------------------------------------------------------------------------------------|
-| nutanix_prism_pwd_host                            | yes      |         |                           | The IP address or FQDN for the Prism (Element or Central).                                             |
-| nutanix_prism_pwd_username                        | no       | "admin" |                           | A valid username with appropriate rights to access the Nutanix API. .                                  |
-| nutanix_prism_pwd_port                            | no       | 9440    |                           | The Prism TCP port                                                                                     |
-| validate_certs                                    | no       | no      | yes / no                  | Whether to check if Prism UI certificates are valid.                                                   |
-| nutanix_debug                                     | no       | False   | True / False              | Whether to output variable contents for debugging purposes.                                            |
-| nutanix_prism_initial_password                    | yes      |         |                           | The default password for the 'admin' user account.                                                     |
-| nutanix_prism_new_password                        | yes      |         |                           | The new password for the 'admin' user account.                                                         |
-
+| Variable                                             | Required | Default | Choices                   | Comments                                                                                               |
+|------------------------------------------------------|----------|---------|---------------------------|--------------------------------------------------------------------------------------------------------|
+| role_nutanix_prism_initial_password_host             | yes      |         |                           | The IP address or FQDN for the Prism (Element or Central).                                             |
+| role_nutanix_prism_initial_password_username         | no       | "admin" |                           | A valid username with appropriate rights to access the Nutanix API. .                                  |
+| role_nutanix_prism_initial_password_port             | no       | 9440    |                           | The Prism TCP port                                                                                     |
+| role_nutanix_prism_initial_password_validate_certs   | no       | false   | true / false              | Whether to check if Prism UI certificates are valid.                                                   |
+| role_nutanix_prism_initial_password_debug            | no       | false   | true / false              | Whether to output variable contents for debugging purposes.                                            |
+| role_nutanix_prism_initial_password_default_password | yes      |         |                           | The default password for the 'admin' user account.                                                     |
+| role_nutanix_prism_initial_password_new_password     | yes      |         |                           | The new password for the 'admin' user account.                                                         |
 
 ## Dependencies
 
-None
-
+- grdavies.role_nutanix_prism_api
 
 ## Example Playbook
 
@@ -31,8 +28,8 @@ None
   vars:
     nutanix_prism_host: 10.38.185.37
     nutanix_prism_username: admin
-    nutanix_prism_initial_password: nutanix/4u
-    nutanix_prism_new_password: nx2Tech165!
+    role_nutanix_prism_initial_password_default_password: nutanix/4u
+    role_nutanix_prism_initial_password_new_password: nx2Tech165!
 ```
 
 
