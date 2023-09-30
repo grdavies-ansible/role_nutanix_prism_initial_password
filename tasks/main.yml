@@ -8,20 +8,20 @@
     name: grdavies.role_nutanix_prism_api
   vars:
     role_nutanix_prism_api_host: "{{ role_nutanix_prism_initial_password_host }}"
-    role_nutanix_prism_api_username: "{{ role_nutanix_prism_initial_password_username }}"
-    role_nutanix_prism_api_password: "{{ role_nutanix_prism_initial_password_default_password }}"
-    role_nutanix_prism_api_port: "{{ role_nutanix_prism_initial_password_port }}"
-    role_nutanix_prism_api_validate_certs: "{{ role_nutanix_prism_initial_password_validate_certs }}"
+    role_nutanix_prism_api_host_username: "{{ role_nutanix_prism_initial_password_host_username }}"
+    role_nutanix_prism_api_host_password: "{{ role_nutanix_prism_initial_password_host_password }}"
+    role_nutanix_prism_api_host_port: "{{ role_nutanix_prism_initial_password_host_port }}"
+    role_nutanix_prism_api_host_validate_certs: "{{ role_nutanix_prism_initial_password_host_validate_certs }}"
     role_nutanix_prism_api_debug: "{{ role_nutanix_prism_initial_password_debug }}"
 
 - name: Set Prism Central "admin" user password
   ansible.builtin.uri:
     url: "https://{{ role_nutanix_prism_api_url_base }}/PrismGateway/services/rest/v1/utils\/change_default_system_password"
     method: POST
-    validate_certs: "{{ role_nutanix_prism_initial_password_validate_certs }}"
+    validate_certs: "{{ role_nutanix_prism_initial_password_host_validate_certs }}"
     body_format: json
     body:
-      oldPassword: "{{ role_nutanix_prism_initial_password_default_password }}"
+      oldPassword: "{{ role_nutanix_prism_initial_password_host_password }}"
       newPassword: "{{ role_nutanix_prism_initial_password_new_password }}"
     headers:
       Authorization: "{{ role_nutanix_prism_api_auth_string_b64 }}"
@@ -32,6 +32,6 @@
 
 - name: Initial account password change failed
   ansible.builtin.fail:
-    msg: "'{{ role_nutanix_prism_initial_password_username }}' initial account password change failed."
+    msg: "'{{ role_nutanix_prism_initial_password_host_username }}' initial account password change failed."
   when:
     - not role_nutanix_prism_initial_password_password_change.json.value
